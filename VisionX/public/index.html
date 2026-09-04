@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DELIVIA — AI-Powered On-Road Food Delivery & Route Intelligence Platform | Team VisionX</title>
+  <meta name="description" content="Delivia enables travelers on expressways to order hot food from roadside partner restaurants and receive it at designated safe pull-over bays with zero travel delay.">
+  
+  <!-- Favicon Emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- Delivia CSS Design System -->
+  <link rel="stylesheet" href="css/style.css?v=4.0">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo-group" onclick="deliviaState.setActiveRole('traveler'); return false;">
+        <div class="brand-logo-icon">D</div>
+        <div>
+          <div class="brand-title">
+            DELIVIA
+            <span class="brand-badge">SIH PS 26205</span>
+          </div>
+          <div class="brand-tagline">On-Road Food Delivery &amp; Route Intelligence • VisionX</div>
+        </div>
+      </a>
+
+      <!-- Live Route & Speed Telemetry Indicator -->
+      <div class="hidden md:flex items-center gap-2 text-xs">
+        <span class="badge badge-salmon" id="header-route-tag">Delhi &rarr; Agra</span>
+        <span class="badge badge-emerald" id="header-speed-tag">85 km/h</span>
+        <span id="header-order-status-tag" style="display: none;"></span>
+      </div>
+
+      <!-- Role Navigation Switcher (Judges & Multi-Role Demo) -->
+      <nav class="role-navigation-bar" aria-label="Role Switcher">
+        <button class="role-nav-btn nav-active" data-role="traveler" title="Traveler ordering &amp; live GPS tracking">
+          <span>🚗</span> Traveler App
+        </button>
+        <button class="role-nav-btn" data-role="restaurant" title="Restaurant kitchen KDS &amp; auto-printing ticket">
+          <span>👨‍🍳</span> Restaurant KDS
+        </button>
+        <button class="role-nav-btn" data-role="runner" title="Delivery partner safe roadside hand-off">
+          <span>🏃</span> Runner App
+        </button>
+        <button class="role-nav-btn" data-role="admin" title="Ops live radar &amp; demand forecast">
+          <span>🛰️</span> Admin Ops
+        </button>
+        <button class="role-nav-btn split-btn" data-role="split" title="3-in-1 Side-by-side Live Sync">
+          <span>⚡</span> 3-in-1 Split View
+        </button>
+      </nav>
+
+      <!-- Action Controls -->
+      <div class="header-right-actions">
+        <button id="global-sound-toggle-btn" class="btn-header" title="Toggle Synthesized Audio Chimes">
+          🔊 Sound On
+        </button>
+        <button id="auto-demo-showcase-btn" class="btn-header btn-auto-demo" title="Run 45s Full End-to-End Simulation">
+          ✨ Auto-Demo
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport Container -->
+  <main class="app-container">
+    <div id="app-main-viewport">
+      <!-- Active view rendered here dynamically by JavaScript -->
+    </div>
+  </main>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Chart.js for AI Demand Forecasting -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js?v=4.0"></script>
+  <script src="js/ml/etaModel.js?v=4.0"></script>
+  <script src="js/ml/rankerModel.js?v=4.0"></script>
+  <script src="js/ml/forecastModel.js?v=4.0"></script>
+  <script src="js/components/audio.js?v=4.0"></script>
+  <script src="js/components/qr.js?v=4.0"></script>
+  <script src="js/components/map.js?v=4.0"></script>
+  <script src="js/state.js?v=4.0"></script>
+  <script src="js/views/traveler.js?v=4.0"></script>
+  <script src="js/views/restaurant.js?v=4.0"></script>
+  <script src="js/views/runner.js?v=4.0"></script>
+  <script src="js/views/admin.js?v=4.0"></script>
+  <script src="js/views/splitView.js?v=4.0"></script>
+  <script src="js/app.js?v=4.0"></script>
+</body>
+</html>
